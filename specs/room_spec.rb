@@ -47,23 +47,23 @@ class TestRoom < Minitest::Test
     assert_equal(expected, actual)
   end
 
-  def test_can_add_guests
-    @room1.add_guest(@guest1)
+  def test_can_check_in_guests
+    @room1.check_in(@guest1)
     guest_array = @room1.guests
     actual = guest_array.length
     assert_equal(1, actual)
   end
 
   def test_can_add_guests__multiple
-    @room1.add_guest(@guest1)
-    @room1.add_guest(@guest2)
+    @room1.check_in(@guest1)
+    @room1.check_in(@guest2)
     guest_array = @room1.guests
     actual = guest_array.length
     assert_equal(2, actual)
   end
 
-  def test_can_remove_guest
-    @room2.remove_guest("Matt")
+  def test_can_check_out_guest_by_name
+    @room2.check_out("Matt")
     guest_array = @room2.guests
     actual = guest_array.length
     assert_equal(1, actual)

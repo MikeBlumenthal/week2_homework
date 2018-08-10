@@ -13,11 +13,11 @@ class Room
     @songs.push(song)
   end
 
-  def add_guest(guest)
+  def check_in(guest)
     @guests.push(guest)
   end
 
-  def remove_guest(name_of_guest_leaving)
+  def check_out(name_of_guest_leaving)
     @guests.delete_if { |guest| guest.name == guest_leaving }
 
   end
