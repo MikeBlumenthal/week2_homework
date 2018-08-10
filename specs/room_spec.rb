@@ -2,12 +2,16 @@ require('minitest/autorun')
 require('minitest/rg')
 require_relative('../room')
 require_relative('../song')
+require_relative('../guest')
 
 class TestRoom < Minitest::Test
 
   def setup
     @song1 = Song.new("Mr Roboto")
     @song2 = Song.new("Smooth Operator")
+
+    @guest1 = Guest.new("Wayne", 40, "Yoshimi...")
+
     @room1 = Room.new(20)
   end
 
@@ -39,6 +43,13 @@ class TestRoom < Minitest::Test
     song = song_array.first
     actual = song.name
     assert_equal(expected, actual)
+  end
+
+  def test_can_add_guests
+    @room1.add_guest(@guest1)
+    guest_array = @room1.guests
+    actual = guest_array.length
+    assert_equal(1, actual)
   end
 
 end
