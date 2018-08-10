@@ -62,8 +62,15 @@ class TestRoom < Minitest::Test
     assert_equal(2, actual)
   end
 
+  def test_can_check_out_guest
+    @room2.check_out(@guest1)
+    guest_array = @room2.guests
+    actual = guest_array.length
+    assert_equal(1, actual)
+  end
+
   def test_can_check_out_guest_by_name
-    @room2.check_out("Matt")
+    @room2.check_out_by_name("Matt")
     guest_array = @room2.guests
     actual = guest_array.length
     assert_equal(1, actual)

@@ -17,9 +17,12 @@ class Room
     @guests.push(guest)
   end
 
-  def check_out(name_of_guest_leaving)
-    @guests.delete_if { |guest| guest.name == guest_leaving }
+  def check_out(guest)
+    @guests.delete(guest)
+  end
 
+  def check_out_by_name(name_of_guest_leaving)
+    @guests.delete_if { |guest| guest.name == name_of_guest_leaving }
   end
 
 end
