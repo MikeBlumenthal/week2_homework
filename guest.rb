@@ -7,4 +7,12 @@ class Guest
     @favourite_song = favourite_song
   end
 
+  def enter_room(room)
+    unless room.full?
+      room.check_in(self)
+    else
+      return "Room is full"
+    end
+  end
+
 end

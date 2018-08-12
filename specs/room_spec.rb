@@ -87,4 +87,5 @@ class TestRoom < Minitest::Test
     actual = @room2.full?
     assert_equal(false, actual)
   end
+
 end
