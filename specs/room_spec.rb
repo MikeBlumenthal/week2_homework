@@ -82,5 +82,9 @@ class TestRoom < Minitest::Test
     actual = @room3.full?
     assert_equal(true, actual)
   end
-  
+
+  def test_room_is_not_full
+    actual = @room2.full?
+    assert_equal(false, actual)
+  end
 end
