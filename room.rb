@@ -25,4 +25,12 @@ class Room
     @guests.delete_if { |guest| guest.name == name_of_guest_leaving }
   end
 
+  def full?
+    if guests.length >= capacity
+      return true
+    else
+      return false
+    end
+  end
+  
 end

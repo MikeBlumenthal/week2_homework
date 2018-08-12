@@ -12,9 +12,11 @@ class TestRoom < Minitest::Test
 
     @guest1 = Guest.new("Wayne", 40, "Yoshimi...")
     @guest2 = Guest.new("Matt", 20, "The Impossible Dream")
+    @guest3 = Guest.new("Dave", 15, "Everlong")
 
     @room1 = Room.new(20)
     @room2 = Room.new(10, [@song1, @song2], [@guest1, @guest2])
+    @room3 = Room.new(3, [@song1, @song2], [@guest1, @guest2, @guest3])
   end
 
   def test_room_has_capacity
@@ -76,4 +78,9 @@ class TestRoom < Minitest::Test
     assert_equal(1, actual)
   end
 
+  def test_room_is_full
+    actual = @room3.full?
+    assert_equal(true, actual)
+  end
+  
 end
