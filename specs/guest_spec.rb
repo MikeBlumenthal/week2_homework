@@ -33,4 +33,10 @@ class TestGuest < Minitest::Test
     assert_equal(2, actual)
   end
 
+  def test_guest_can_leave_room
+    @guest1.leave_room(@room1)
+    actual = @room1.guests.length
+    assert_equal(0, actual)
+  end
+
 end

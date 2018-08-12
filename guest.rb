@@ -15,4 +15,7 @@ class Guest
     end
   end
 
+  def leave_room(room)
+    room.check_out(self)
+  end
 end
