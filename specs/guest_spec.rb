@@ -28,6 +28,11 @@ class TestGuest < Minitest::Test
     assert_equal("Paranoid Android", actual)
   end
 
+  def test_guest_is_stamped__false
+    actual = @guest1.stamped
+    assert_equal(false, actual)
+  end
+
   def test_guest_can_enter_room
     @guest2.enter_room(@room1)
     actual = @room1.guests.length

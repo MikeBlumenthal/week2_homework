@@ -55,6 +55,7 @@ class TestRoom < Minitest::Test
   end
 
   def test_can_check_in_guests
+    @guest1.stamped = true
     @room1.check_in(@guest1)
     guest_array = @room1.guests
     actual = guest_array.length
@@ -62,6 +63,8 @@ class TestRoom < Minitest::Test
   end
 
   def test_can_add_guests__multiple
+    @guest1.stamped = true
+    @guest2.stamped = true
     @room1.check_in(@guest1)
     @room1.check_in(@guest2)
     guest_array = @room1.guests

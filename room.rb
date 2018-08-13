@@ -15,7 +15,9 @@ class Room
   end
 
   def check_in(guest)
-    @guests.push(guest)
+    if guest.stamped == true
+      @guests.push(guest)
+    end
   end
 
   def check_out(guest)
