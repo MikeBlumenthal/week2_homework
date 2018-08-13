@@ -8,6 +8,7 @@ class TestGuest < Minitest::Test
   def setup
     @guest1 = Guest.new("Thom", 50, "Paranoid Android")
     @guest2 = Guest.new("Bessie", 25, "Go Now")
+    @guest3 = Guest.new("Bob", 1, "Money, Money, Money")
 
     @room1 = Room.new(2, 5, [], [@guest1])
   end
@@ -42,7 +43,15 @@ class TestGuest < Minitest::Test
   def test_guest_can_pay_fee
     @guest2.pay_entry_fee(@room1)
     actual = @guest2.wallet
+    actual2 = @guest2.stamped
     assert_equal(20, actual)
+    assert_equal(true, actual2)
+  end
+
+  def test_guest_can_pay_fee__not_enough_money
+    @guest3.pay_entry_fee(@room1)
+    actual = @guest3.wallet
+    assert_equal(1, actual)
   end
 
 end
