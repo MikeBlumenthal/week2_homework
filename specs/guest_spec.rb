@@ -39,4 +39,10 @@ class TestGuest < Minitest::Test
     assert_equal(0, actual)
   end
 
+  def test_guest_can_pay_fee
+    @guest2.pay_entry_fee(@room1)
+    actual = @guest2.wallet
+    assert_equal(20, actual)
+  end
+
 end
