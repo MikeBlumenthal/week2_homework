@@ -1,10 +1,11 @@
 class Room
 
-  attr_reader :capacity
+  attr_reader :capacity, :entry_fee
   attr_accessor :songs, :guests
 
-  def initialize(capacity, songs = [], guests = [])
+  def initialize(capacity, entry_fee, songs = [], guests = [])
     @capacity = capacity
+    @entry_fee = entry_fee
     @songs = songs
     @guests = guests
   end
@@ -26,7 +27,7 @@ class Room
   end
 
   def full?
-    if guests.length > capacity
+    if guests.length >= capacity
       return true
     else
       return false

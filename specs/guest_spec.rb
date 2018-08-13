@@ -9,7 +9,7 @@ class TestGuest < Minitest::Test
     @guest1 = Guest.new("Thom", 50, "Paranoid Android")
     @guest2 = Guest.new("Bessie", 25, "Go Now")
 
-    @room1 = Room.new(2, [], [@guest1])
+    @room1 = Room.new(2, 5, [], [@guest1])
   end
 
   def test_guest_has_name

@@ -1,6 +1,7 @@
 class Guest
 
   attr_reader :name, :wallet, :favourite_song
+
   def initialize(name, wallet, favourite_song)
     @name = name
     @wallet = wallet
@@ -18,4 +19,6 @@ class Guest
   def leave_room(room)
     room.check_out(self)
   end
+
+
 end

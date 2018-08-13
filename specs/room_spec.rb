@@ -14,9 +14,9 @@ class TestRoom < Minitest::Test
     @guest2 = Guest.new("Matt", 20, "The Impossible Dream")
     @guest3 = Guest.new("Dave", 15, "Everlong")
 
-    @room1 = Room.new(20)
-    @room2 = Room.new(10, [@song1, @song2], [@guest1, @guest2])
-    @room3 = Room.new(3, [@song1, @song2], [@guest1, @guest2, @guest3])
+    @room1 = Room.new(20, 5)
+    @room2 = Room.new(10, 5, [@song1, @song2], [@guest1, @guest2])
+    @room3 = Room.new(3, 7, [@song1, @song2], [@guest1, @guest2, @guest3])
   end
 
   def test_room_has_capacity
@@ -32,6 +32,11 @@ class TestRoom < Minitest::Test
   def test_room_has_guests__empty
     actual = @room1.guests
     assert_equal([], actual)
+  end
+
+  def test_room_has_entry_fee
+    actual = @room1.entry_fee
+    assert_equal(5, actual)
   end
 
   def test_room_can_add_song
